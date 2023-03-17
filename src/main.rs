@@ -50,9 +50,9 @@ fn name_handler() -> String {
     ];
 
     // let pick_gender = rand::thread_rng().gen_bool(0.5);
-    let pick_gender = &rng.gen_bool(0.5);
+    let pick_gender = rng.gen_bool(0.5);
 
-    if *pick_gender {
+    if pick_gender {
         name = format!("{} {}", &male_names[rng.gen_range(0..5)], &surnames[rng.gen_range(0..3)]);
     } else {
         name = format!("{} {}", &female_names[rng.gen_range(0..5)], &surnames[rng.gen_range(0..3)]);
