@@ -5,6 +5,10 @@ use rand::{self, Rng};
 //     rand::thread_rng().gen_range(range_1..range_2)
 // }
 
+// fn pick_rand_value(first_name: Vec<&String>, surname: Vec<&String>) -> String {
+//     let name = format!()
+// }
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -20,6 +24,8 @@ fn main() {
 }
 
 fn name_handler() -> String {
+    let name: String;
+
     let male_names = [
         "Houn",
         "Rhivaun",
@@ -42,7 +48,13 @@ fn name_handler() -> String {
         "Wyndael"
     ];
 
-    let name: String = format!("{} {}", &male_names[rand::thread_rng().gen_range(0..4)], &surnames[rand::thread_rng().gen_range(0..2)]);
+    let pick_gender = rand::thread_rng().gen_bool(0.5);
+
+    if pick_gender {
+        name = format!("{} {}", &male_names[rand::thread_rng().gen_range(0..5)], &surnames[rand::thread_rng().gen_range(0..3)]);
+    } else {
+        name = format!("{} {}", &female_names[rand::thread_rng().gen_range(0..5)], &surnames[rand::thread_rng().gen_range(0..3)]);
+    }
 
     return name;
 }
