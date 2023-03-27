@@ -33,7 +33,17 @@ impl Character {
             "Varianth",
             "Jarekai",
             "Elendrian",
-            "Arcturius"         
+            "Arcturius",
+            "Eldrin",
+            "Rendrick",
+            "Andros",
+            "Lucien",
+            "Erevan",
+            "Corin",
+            "Callum",
+            "Gideon",
+            "Lirien",
+            "Darian"
         ];
 
         let female_names = [
@@ -56,7 +66,17 @@ impl Character {
             "Torrinthia",
             "Elendrian",
             "Sylvarian",
-            "Tavionna"
+            "Tavionna",
+            "Alianor",
+            "Ilmare",
+            "Gwynneth",
+            "Amalthea",
+            "Anora",
+            "Aurielle",
+            "Belisent",
+            "Eillistraee",
+            "Seraphine",
+            "Zephyrine"
         ];
 
         let surnames = [
@@ -68,30 +88,50 @@ impl Character {
             "Dundragon",
             "Evenwood",
             "Greycastle",
-            "Tallstag"
+            "Tallstag",
+            "Amalith",
+            "Valtairis",
+            "Danilor",
+            "Eldrinthal",
+            "Ilmareen",
+            "Corinthal",
+            "Gwynnethian",
+            "Lirienhart",
+            "Erevanthir",
+            "Sarienwood"
         ];
 
         let traits = [
             "Immortal",
             "Shapeshifter",
-            "Deity"
+            "Deity",
+            "Brave",
+            "Charismatic",
+            "Resilient",
+            "Skilled",
+            "Intelligent",
+            "Agile",
+            "Perceptive",
+            "Resourcful",
+            "Faithful",
+            "Ambitious"
         ];
 
         let pick_gender = rng.gen_bool(0.5);
 
         if pick_gender {
             return Self {
-                first_name: male_names[rng.gen_range(0..20)].to_string(),
-                surname: surnames[rng.gen_range(0..9)].to_string(),
+                first_name: male_names[rng.gen_range(0..male_names.len())].to_string(),
+                surname: surnames[rng.gen_range(0..surnames.len())].to_string(),
                 age: rng.gen_range(1..750),
-                traits: traits[rng.gen_range(0..3)].to_string(),
+                traits: traits[rng.gen_range(0..traits.len())].to_string(),
             }
         } else {
             return Self {
-                first_name: female_names[rng.gen_range(0..20)].to_string(),
-                surname: surnames[rng.gen_range(0..9)].to_string(),
+                first_name: female_names[rng.gen_range(0..female_names.len())].to_string(),
+                surname: surnames[rng.gen_range(0..surnames.len())].to_string(),
                 age: rng.gen_range(1..750),
-                traits: traits[rng.gen_range(0..3)].to_string(),
+                traits: traits[rng.gen_range(0..traits.len())].to_string(),
             }
         }
     }
