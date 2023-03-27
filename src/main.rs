@@ -1,62 +1,112 @@
 use std::env;
 use rand::{self, Rng};
 
-// fn gen_rand_int(range_1: u8, range_2: u8) -> u8 {
-//     rand::thread_rng().gen_range(range_1..range_2)
-// }
+#[derive(Debug)]
+struct Character {
+    first_name: String,
+    surname: String,
+    age: u16,
+    traits: String,
+}
 
-// fn pick_rand_value(first_name: Vec<&String>, surname: Vec<&String>) -> String {
-//     let name = format!()
-// }
+impl Character {
+    fn new() -> Self {
+        let mut rng = rand::thread_rng();
+
+        let male_names = [
+            "Houn",
+            "Rhivaun",
+            "Umbril",
+            "Xaemar",
+            "Zeltaebar",
+            "Darvin",
+            "Dorn",
+            "Evendur",
+            "Gorstag",
+            "Grim",
+            "Helm",
+            "Malark",
+            "Morn",
+            "Randal",
+            "Stedd",
+            "Theronius",
+            "Varianth",
+            "Jarekai",
+            "Elendrian",
+            "Arcturius"         
+        ];
+
+        let female_names = [
+            "Glouris",
+            "Maeve",
+            "Sevaera",
+            "Xaemarra",
+            "Zraela",
+            "Araveen",
+            "Asvele",
+            "Jhessail",
+            "Kerri",
+            "Lureene",
+            "Miri",
+            "Rowan",
+            "Shandri",
+            "Tessele",
+            "Lyrastra",
+            "Caelondra",
+            "Torrinthia",
+            "Elendrian",
+            "Sylvarian",
+            "Tavionna"
+        ];
+
+        let surnames = [
+            "Lharaendo",
+            "Mristar",
+            "Wyndael",
+            "Amblecrown",
+            "Buckman",
+            "Dundragon",
+            "Evenwood",
+            "Greycastle",
+            "Tallstag"
+        ];
+
+        let traits = [
+            "Immortal",
+            "Shapeshifter",
+            "Deity"
+        ];
+
+        let pick_gender = rng.gen_bool(0.5);
+
+        if pick_gender {
+            return Self {
+                first_name: male_names[rng.gen_range(0..20)].to_string(),
+                surname: surnames[rng.gen_range(0..9)].to_string(),
+                age: rng.gen_range(1..750),
+                traits: traits[rng.gen_range(0..3)].to_string(),
+            }
+        } else {
+            return Self {
+                first_name: female_names[rng.gen_range(0..20)].to_string(),
+                surname: surnames[rng.gen_range(0..9)].to_string(),
+                age: rng.gen_range(1..750),
+                traits: traits[rng.gen_range(0..3)].to_string(),
+            }
+        }
+    }
+}
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
     let command = &args[1];
 
-    if command == "name" {
-        let name = name_handler();
+    if command == "character" {
+        let character = Character::new();
 
-        println!("{}", name);
+        println!("{:#?}", character);
     }
 
     // dbg!(args);
-}
-
-fn name_handler() -> String {
-    let mut rng = rand::thread_rng();
-    let name: String;
-
-    let male_names = [
-        "Houn",
-        "Rhivaun",
-        "Umbril",
-        "Xaemar",
-        "Zeltaebar"
-    ];
-
-    let female_names = [
-        "Glouris",
-        "Maeve",
-        "Sevaera",
-        "Xaemarra",
-        "Zraela"
-    ];
-
-    let surnames = [
-        "Lharaendo",
-        "Mristar",
-        "Wyndael"
-    ];
-
-    // let pick_gender = rand::thread_rng().gen_bool(0.5);
-    let pick_gender = rng.gen_bool(0.5);
-
-    if pick_gender {
-        name = format!("{} {}", &male_names[rng.gen_range(0..5)], &surnames[rng.gen_range(0..3)]);
-    } else {
-        name = format!("{} {}", &female_names[rng.gen_range(0..5)], &surnames[rng.gen_range(0..3)]);
-    }
-
-    return name;
 }
