@@ -2,14 +2,14 @@ use std::env;
 use rand::{self, Rng};
 
 #[derive(Debug)]
-struct Character {
+struct Npc {
     first_name: String,
     surname: String,
     age: u16,
     traits: String,
 }
 
-impl Character {
+impl Npc {
     fn new() -> Self {
         let mut rng = rand::thread_rng();
 
@@ -142,8 +142,8 @@ fn main() {
 
     let command = &args[1];
 
-    if command == "character" {
-        let character = Character::new();
+    if command == "npc" {
+        let character = Npc::new();
 
         println!("{:#?}", character);
     }
