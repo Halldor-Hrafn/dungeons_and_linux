@@ -16,13 +16,13 @@ pub struct PlayableCharacter {
     level: u8,
     class: String,
     sub_class: String,
-    stats: HashMap,
+    stats: HashMap<String, u8>,
     proficiency_bonus: u8,
     proficiencies: Vec<String>,
     other_proficiencies: Vec<String>,
     languages: Vec<String>,
     equipment: Vec<String>,
-    coins: HashMap,
+    coins: HashMap<String, u16>,
     personality: String,
     ideals: String,
     bonds: String,
@@ -32,7 +32,7 @@ pub struct PlayableCharacter {
     spellcasting_ability: String,
     spell_save_dc: u8,
     spell_attack_bonus: u8,
-    spells: HashMap
+    spells: HashMap<String, u8>
 }
 
 impl PlayableCharacter {

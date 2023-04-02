@@ -1,6 +1,6 @@
 use std::env;
 
-use crate::character::npc;
+use crate::character::npc::Npc;
 
 pub mod character;
 
@@ -10,7 +10,7 @@ fn main() {
     let command = &args[1];
 
     if command == "npc" {
-        let character = npc::Npc::new();
+        let character = Npc::new();
 
         println!("{:#?}", character);
     }
