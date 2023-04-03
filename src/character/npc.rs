@@ -5,7 +5,7 @@ pub struct Npc {
     first_name: String,
     surname: String,
     age: u16,
-    traits: String,
+    traits: Vec<String>,
 }
 
 impl Npc {
@@ -123,15 +123,31 @@ impl Npc {
                 first_name: male_names[rng.gen_range(0..male_names.len())].to_string(),
                 surname: surnames[rng.gen_range(0..surnames.len())].to_string(),
                 age: rng.gen_range(1..750),
-                traits: traits[rng.gen_range(0..traits.len())].to_string(),
+                // traits: traits[rng.gen_range(0..traits.len())].to_string(),
+                traits: randomize_traits(traits.to_vec()),
             }
         } else {
             return Self {
                 first_name: female_names[rng.gen_range(0..female_names.len())].to_string(),
                 surname: surnames[rng.gen_range(0..surnames.len())].to_string(),
                 age: rng.gen_range(1..750),
-                traits: traits[rng.gen_range(0..traits.len())].to_string(),
+                // traits: traits[rng.gen_range(0..traits.len())].to_string(),
+                traits: randomize_traits(traits.to_vec()),
             }
         }
     }
+}
+
+// create a function that randomly selects 3 values from a vector
+// and returns them as a vector
+fn randomize_traits(traits: Vec<&str>) -> Vec<String> {
+    let mut rng = rand::thread_rng();
+    let mut randomized_traits = Vec::new();
+
+    for _ in 0..3 {
+        let random_trait = traits[rng.gen_range(0..traits.len())].to_string();
+        randomized_traits.push(random_trait);
+    }
+
+    randomized_traits
 }
