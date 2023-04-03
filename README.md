@@ -16,7 +16,7 @@ in src/character/npc.rs
 
 # Installation
 
-Here is a simple guide on how you can clone this app for yourself in x steps
+Here is a simple guide on how you can clone this app for yourself in 2 steps
 
 Step 1: clone the repository and go into the directory
 

@@ -138,8 +138,6 @@ impl Npc {
     }
 }
 
-// create a function that randomly selects 3 values from a vector
-// and returns them as a vector
 fn randomize_traits(traits: Vec<&str>) -> Vec<String> {
     let mut rng = rand::thread_rng();
     let mut randomized_traits = Vec::new();
