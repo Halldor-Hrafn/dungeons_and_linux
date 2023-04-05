@@ -45,5 +45,6 @@ impl PlayableCharacter {
         // todo: find a way to do all of this shit
 
         // maybe add a lib.rs and some traits once I've worked more on this
+        todo!()
     }
 }
